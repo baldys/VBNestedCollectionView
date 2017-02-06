@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="gTV-IL-0wX" customClass="CatPhotosCollectionViewCell" customModule="VBNestedCollectionViewDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bengal_kitten_1" translatesAutoresizingMaskIntoConstraints="NO" id="ijg-c5-ycD">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cat1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rd1-vj-S38">
+                        <rect key="frame" x="0.0" y="79" width="100" height="21"/>
+                        <color key="backgroundColor" red="0.29411764705882354" green="0.24834526909722221" blue="0.2624782986111111" alpha="0.4724957191780822" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Rd1-vj-S38" secondAttribute="bottom" id="3GF-D2-AfK"/>
+                <constraint firstAttribute="trailing" secondItem="Rd1-vj-S38" secondAttribute="trailing" id="LnO-P5-uKK"/>
+                <constraint firstAttribute="bottom" secondItem="ijg-c5-ycD" secondAttribute="bottom" id="NFA-XC-x1O"/>
+                <constraint firstAttribute="trailing" secondItem="ijg-c5-ycD" secondAttribute="trailing" id="WdL-Hz-40Q"/>
+                <constraint firstItem="ijg-c5-ycD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="g18-Lk-sgV"/>
+                <constraint firstItem="ijg-c5-ycD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="sIj-Vf-zLJ"/>
+                <constraint firstItem="Rd1-vj-S38" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="u3K-iT-ZeJ"/>
+            </constraints>
+            <connections>
+                <outlet property="imageView" destination="ijg-c5-ycD" id="Vjh-hf-kqq"/>
+                <outlet property="title" destination="Rd1-vj-S38" id="7rf-u0-uzJ"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="bengal_kitten_1" width="479" height="618"/>
+    </resources>
+</document>
