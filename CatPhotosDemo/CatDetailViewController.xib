@@ -1,12 +1,17 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CatDetailViewController" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CatDetailViewController" customModule="VBNestedCollectionView" customModuleProvider="target">
             <connections>
+                <outlet property="catImageView" destination="cd9-dO-3vj" id="0Hz-2S-6wE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,7 +19,41 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cd9-dO-3vj">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iU0-Eq-VOB">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYz-mq-e1z">
+                            <rect key="frame" x="20" y="26" width="46" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Symbol" family="Symbol" pointSize="17"/>
+                            <state key="normal" title="Close">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="closeAction:" destination="-1" eventType="touchUpInside" id="UdE-bx-c8Y"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.12761215490797545" colorSpace="calibratedRGB"/>
+                </view>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="iU0-Eq-VOB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="BPU-oc-dxK"/>
+                <constraint firstItem="iU0-Eq-VOB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="FhK-EM-aiP"/>
+                <constraint firstItem="cd9-dO-3vj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="It9-MI-NIn"/>
+                <constraint firstItem="cd9-dO-3vj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KlN-QZ-ke4"/>
+                <constraint firstItem="iU0-Eq-VOB" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="dWD-Wb-hYI"/>
+                <constraint firstAttribute="bottom" secondItem="iU0-Eq-VOB" secondAttribute="bottom" constant="603" id="fwo-fp-AsK"/>
+                <constraint firstAttribute="bottom" secondItem="cd9-dO-3vj" secondAttribute="bottom" id="ifp-Hk-t2z"/>
+                <constraint firstAttribute="trailing" secondItem="iU0-Eq-VOB" secondAttribute="trailing" id="pji-bP-6g5"/>
+                <constraint firstAttribute="trailing" secondItem="cd9-dO-3vj" secondAttribute="trailing" id="tHL-ku-1cH"/>
+            </constraints>
+            <point key="canvasLocation" x="93.5" y="54.5"/>
         </view>
     </objects>
 </document>

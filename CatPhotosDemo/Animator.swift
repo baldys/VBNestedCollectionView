@@ -10,9 +10,19 @@ import UIKit
 
 class Animator: NSObject, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
     
-    var initFrame: CGRect?
-    var imageView: UIImageView?
+    var sourceFrame: CGRect?
+    var targetFrame: CGRect?
+    var sourceImageView: UIImageView?
+    var presenting:Bool?
+    
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        return self
+    }
+    
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+
         return self
     }
     
@@ -24,18 +34,30 @@ class Animator: NSObject, UIViewControllerTransitioningDelegate, UIViewControlle
         let fromVC = transitionContext.viewController(forKey: .from)!
         let toVC = transitionContext.viewController(forKey: .to)!
         
-        transitionContext.containerView.addSubview(fromVC.view);
-        transitionContext.containerView.addSubview(toVC.view);
         
         let endFrame = UIScreen.main.bounds
-        let startFrame = initFrame!;
+        let startFrame = sourceFrame!
         
-        toVC.view.frame = startFrame;
+        toVC.view.frame = startFrame
         
-        UIView.animate(withDuration: self.transitionDuration(using: transitionContext), animations: {
-            toVC.view.frame = endFrame
-        }) { (bool:Bool) in
-            transitionContext.completeTransition(true);
+        if presenting! {
+            transitionContext.containerView.addSubview(toVC.view)
+            
+            UIView.animate(withDuration: self.transitionDuration(using: transitionContext), animations: {
+//                toVC.view.transform = CGAffineTransform(scaleX: 1.02, y: 1.02)
+                toVC.view.frame = endFrame
+            }) { (bool:Bool) in
+                transitionContext.completeTransition(true)
+                fromVC.endAppearanceTransition()
+            }
+
+            
         }
+        else {
+            transitionContext.completeTransition(true)
+            fromVC.endAppearanceTransition()
+
+        }
+
     }
 }

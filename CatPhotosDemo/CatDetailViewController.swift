@@ -8,8 +8,38 @@
 
 import UIKit
 
+protocol DetailViewControllerDelegate: class {
+    
+    func closeViewController(_ viewController:UIViewController)
+    
+}
 class CatDetailViewController: UIViewController {
 
+    weak var delegate:DetailViewControllerDelegate?
+    var catData:CatData?
+    
+    @IBOutlet weak var catImageView: UIImageView!
+    
+    @IBAction func closeAction(_ sender: UIButton) {
+        
+        
+        
+        let animator = Animator()
+        animator.sourceFrame = view.bounds
+        animator.sourceImageView = self.catImageView
+        animator.presenting = false
+        
+        dismiss(animated: true, completion: nil)
+
+        delegate?.closeViewController(self)
+    }
+    
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.catImageView.image = catData?.catImage
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,3 +52,4 @@ class CatDetailViewController: UIViewController {
     }
 
 }
+

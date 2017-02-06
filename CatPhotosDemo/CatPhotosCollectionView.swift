@@ -10,7 +10,7 @@ import UIKit
 
 
 protocol CellSelectionDelegate {
-    func didSelectCell(from collectionView: UICollectionView, at indexPath: IndexPath)
+    func didSelectCell(_ cell:CatPhotosCollectionViewCell, from collectionView: UICollectionView, at indexPath: IndexPath)
 }
 
 class CatPhotosCollectionView: VBNestedCollectionView, VBNestedCollectionViewDataSource {
@@ -68,7 +68,8 @@ class CatPhotosCollectionView: VBNestedCollectionView, VBNestedCollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        delegate?.didSelectCell(from:collectionView, at: indexPath)
+        let cell = collectionView.cellForItem(at: indexPath) as! CatPhotosCollectionViewCell
+        delegate?.didSelectCell(cell, from: collectionView, at: indexPath)
         
     }
 
