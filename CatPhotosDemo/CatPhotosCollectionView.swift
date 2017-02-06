@@ -9,23 +9,17 @@ import Foundation
 import UIKit
 
 
-protocol CatPhotosTapHandler {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+protocol CellSelectionDelegate {
+    func didSelectCell(from collectionView: UICollectionView, at indexPath: IndexPath)
 }
 
 class CatPhotosCollectionView: VBNestedCollectionView, VBNestedCollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Row: \(getRowFromCollectionView(collectionView: collectionView)!), Item: \(indexPath.item)")
-        if(tapHandler != nil) {
-            tapHandler?.collectionView(collectionView, didSelectItemAt: indexPath)
-        }
-    }
-
+ 
     var rowHeight: CGFloat
     
     var dataController: DataController
     
-    var tapHandler: CatPhotosTapHandler?
+    var delegate: CellSelectionDelegate?
 
     override init(frame: CGRect) {
         rowHeight = 200
@@ -63,11 +57,20 @@ class CatPhotosCollectionView: VBNestedCollectionView, VBNestedCollectionViewDat
     }
 
     func cellFor(collectionView: UICollectionView, row: Int, item: Int, indexPath: IndexPath) -> UICollectionViewCell {
-        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CatPhotosCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CatPhotosCollectionViewCell
         
         cell.imageView.image = dataController.items[row].cats[indexPath.item].catImage
         cell.title.text = dataController.items[row].cats[indexPath.row].imageName
 
         return cell
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        delegate?.didSelectCell(from:collectionView, at: indexPath)
+        
+    }
+
 }
+
