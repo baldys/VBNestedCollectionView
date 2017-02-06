@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "89696ECA1E441E7F0082ACB3"
-               BuildableName = "VBNestedCollectionViewDemo.app"
-               BlueprintName = "VBNestedCollectionViewDemo"
-               ReferencedContainer = "container:VBNestedCollectionViewDemo.xcodeproj">
+               BuildableName = "VBNestedCollectionView.app"
+               BlueprintName = "VBNestedCollectionView"
+               ReferencedContainer = "container:VBNestedCollectionView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "89696EDE1E441E7F0082ACB3"
-               BuildableName = "VBNestedCollectionViewDemoTests.xctest"
-               BlueprintName = "VBNestedCollectionViewDemoTests"
-               ReferencedContainer = "container:VBNestedCollectionViewDemo.xcodeproj">
+               BuildableName = "VBNestedCollectionViewTests.xctest"
+               BlueprintName = "VBNestedCollectionViewTests"
+               ReferencedContainer = "container:VBNestedCollectionView.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "89696EE91E441E7F0082ACB3"
-               BuildableName = "VBNestedCollectionViewDemoUITests.xctest"
-               BlueprintName = "VBNestedCollectionViewDemoUITests"
-               ReferencedContainer = "container:VBNestedCollectionViewDemo.xcodeproj">
+               BuildableName = "VBNestedCollectionViewUITests.xctest"
+               BlueprintName = "VBNestedCollectionViewUITests"
+               ReferencedContainer = "container:VBNestedCollectionView.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "89696ECA1E441E7F0082ACB3"
-            BuildableName = "VBNestedCollectionViewDemo.app"
-            BlueprintName = "VBNestedCollectionViewDemo"
-            ReferencedContainer = "container:VBNestedCollectionViewDemo.xcodeproj">
+            BuildableName = "VBNestedCollectionView.app"
+            BlueprintName = "VBNestedCollectionView"
+            ReferencedContainer = "container:VBNestedCollectionView.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "89696ECA1E441E7F0082ACB3"
-            BuildableName = "VBNestedCollectionViewDemo.app"
-            BlueprintName = "VBNestedCollectionViewDemo"
-            ReferencedContainer = "container:VBNestedCollectionViewDemo.xcodeproj">
+            BuildableName = "VBNestedCollectionView.app"
+            BlueprintName = "VBNestedCollectionView"
+            ReferencedContainer = "container:VBNestedCollectionView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "89696ECA1E441E7F0082ACB3"
-            BuildableName = "VBNestedCollectionViewDemo.app"
-            BlueprintName = "VBNestedCollectionViewDemo"
-            ReferencedContainer = "container:VBNestedCollectionViewDemo.xcodeproj">
+            BuildableName = "VBNestedCollectionView.app"
+            BlueprintName = "VBNestedCollectionView"
+            ReferencedContainer = "container:VBNestedCollectionView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
