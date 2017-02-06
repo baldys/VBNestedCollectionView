@@ -1,5 +1,8 @@
 # VBNestedCollectionView
 
+![alt text](https://github.com/baldys/VBNestedCollectionView/blob/master/Preview.gif "Logo Title Text 1")
+
+
 A nested TableView inside CollectionView that allows you to side scroll items in both dimensions to present an iTunes or Netflix like UI
 
 # Getting started
