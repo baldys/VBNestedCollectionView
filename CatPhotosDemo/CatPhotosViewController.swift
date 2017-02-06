@@ -40,14 +40,24 @@ extension CatPhotosViewController: CellSelectionDelegate {
         let animator = Animator()
         
         let realRect = collectionView.convert(cell.frame, to: self.view)
-        
         let cellImage = cell.imageView.image
         
-//        detailVC.catImageView.image = cell.imageView.image
+
+        detailVC.catImage = cellImage
+        
+        
+//        print(detailVC)
+//        print(detailVC.catImageView)
+//        print(detailVC.catImageView.image)
+        
+//        detailVC.catImageView.image = cell.imageView.image;
         
         let collectionRowIndex = collectionView.tag
-        detailVC.catData = DataController().items[collectionRowIndex].cats[indexPath.row]
+//        detailVC.catData = DataController().items[collectionRowIndex].cats[indexPath.row]
 
+        animator.sourceImageView = UIImageView(image: cell.imageView.image)
+        
+        
         animator.sourceFrame = realRect
         animator.presenting = true
         detailVC.modalPresentationStyle = .custom

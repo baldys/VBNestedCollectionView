@@ -33,20 +33,29 @@ class Animator: NSObject, UIViewControllerTransitioningDelegate, UIViewControlle
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let fromVC = transitionContext.viewController(forKey: .from)!
         let toVC = transitionContext.viewController(forKey: .to)!
+        let container = transitionContext.containerView
         
         
         let endFrame = UIScreen.main.bounds
         let startFrame = sourceFrame!
         
         toVC.view.frame = startFrame
+        sourceImageView?.frame = startFrame
+        sourceImageView?.contentMode = .scaleAspectFit
+        sourceImageView?.clipsToBounds = true
+        
+        
         
         if presenting! {
-            transitionContext.containerView.addSubview(toVC.view)
+            container.addSubview(toVC.view)
+            container.addSubview(sourceImageView!)
             
-            UIView.animate(withDuration: self.transitionDuration(using: transitionContext), animations: {
+            UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
+                self.sourceImageView?.frame = endFrame
 //                toVC.view.transform = CGAffineTransform(scaleX: 1.02, y: 1.02)
                 toVC.view.frame = endFrame
             }) { (bool:Bool) in
+                self.sourceImageView?.removeFromSuperview()
                 transitionContext.completeTransition(true)
                 fromVC.endAppearanceTransition()
             }
