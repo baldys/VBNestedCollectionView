@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "VBNestedCollectionView"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "A nested CollectionView inside a TableView that allows you to present iTunes or Netflix like 2-dimensional scrolling UX in your iOS App"
 
   # This description is used to generate tags and improve search results.
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/baldys/VBNestedCollectionView.git", :commit => "6fa32bcaaf1a3a2525507e03c0e654027b0040fc" }
+  s.source       = { :git => "https://github.com/baldys/VBNestedCollectionView.git", :commit => "e445bb3872e1062f49be1fe3f966baac8e4f43d2" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
