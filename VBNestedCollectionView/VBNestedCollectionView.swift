@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 // Implement this protocol from your View Controller
-protocol VBNestedCollectionViewDataSource: class {
+public protocol VBNestedCollectionViewDataSource: class {
     
     // Total number of rows in the
     func numberOfRows() -> Int
@@ -21,7 +21,7 @@ protocol VBNestedCollectionViewDataSource: class {
     func customizeCollectionView(collectionView: UICollectionView)
 }
 
-class VBNestedCollectionView: UIView, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
+public class VBNestedCollectionView: UIView, UITableViewDelegate, UICollectionViewDelegate {
     weak var _dataSource: VBNestedCollectionViewDataSource!
     var dataSource: VBNestedCollectionViewDataSource!{
         get {return self._dataSource}
@@ -47,32 +47,41 @@ class VBNestedCollectionView: UIView, UITableViewDelegate, UITableViewDataSource
 
     var layout: UICollectionViewFlowLayout?
 
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame:frame)
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return _dataSource.numberOfItemsAt(row: collectionView.superview!.superview!.tag)
-    }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         print(collectionView.superview!.superview!.tag)
         return _dataSource.cellFor(collectionView: collectionView, row: collectionView.superview!.superview!.tag, item: indexPath.item, indexPath: indexPath)
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return _dataSource.numberOfRows()
-    }
 
-    func getRowFromCollectionView(collectionView: UICollectionView) -> Int?{
+
+    public func getRowFromCollectionView(collectionView: UICollectionView) -> Int?{
         return collectionView.superview!.superview!.tag
     }
+}
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+extension VBNestedCollectionView: UITableViewDataSource {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return _dataSource.numberOfRows()
+    }
+}
+
+extension VBNestedCollectionView: UICollectionViewDataSource {
+    
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return _dataSource.numberOfItemsAt(row: collectionView.superview!.superview!.tag)
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "VBNestedTableViewCell") {
             cell.tag = indexPath.item
             return cell
@@ -81,12 +90,12 @@ class VBNestedCollectionView: UIView, UITableViewDelegate, UITableViewDataSource
             cell.tag = indexPath.item
             
             print(indexPath.row)
-
+            
             if(layout == nil) { // Create a default layout if one was not provided
                 layout = UICollectionViewFlowLayout()
                 layout!.scrollDirection = .horizontal
             }
-
+            
             let collectionView = UICollectionView(frame: CGRect(x: 0.0, y: 0.0, width: self.bounds.width, height: _dataSource.rowHeight), collectionViewLayout: layout!)
             collectionView.dataSource = self
             collectionView.delegate = self
@@ -98,7 +107,6 @@ class VBNestedCollectionView: UIView, UITableViewDelegate, UITableViewDataSource
         }
     }
 }
-
 
 
 

@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "VBNestedCollectionView"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "A nested CollectionView inside a TableView that allows you to present iTunes or Netflix like 2-dimensional scrolling UX in your iOS App"
 
   # This description is used to generate tags and improve search results.
