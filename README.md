@@ -2,8 +2,7 @@
 
 ![alt text](https://github.com/baldys/VBNestedCollectionView/blob/master/Preview.gif "Logo Title Text 1")
 
-
-A nested TableView inside CollectionView that allows you to side scroll items in both dimensions to present an iTunes or Netflix like UI
+UICollectionViews nested inside UITableViewCells that allows you to side scroll items in both dimensions to present an iTunes or Netflix-like UI 
 
 # Getting started
 
@@ -26,7 +25,7 @@ A nested TableView inside CollectionView that allows you to side scroll items in
   }
   ```
 
-3. Add to view hierarchy
+3. Add as a subview
 
   ```
   myNestedView = CatPhotosNestedCollectionView(frame: self.view.frame);
