@@ -34,8 +34,6 @@ class Animator: NSObject, UIViewControllerTransitioningDelegate, UIViewControlle
         let fromVC = transitionContext.viewController(forKey: .from)!
         let toVC = transitionContext.viewController(forKey: .to)!
         let container = transitionContext.containerView
-
-//        container.addSubview(fromVC.view)
         
         let endFrame = UIScreen.main.bounds
         let startFrame = sourceFrame!
@@ -55,10 +53,9 @@ class Animator: NSObject, UIViewControllerTransitioningDelegate, UIViewControlle
             
             UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
                 self.sourceImageView?.frame = endFrame
-//                toVC.view.transform = CGAffineTransform(scaleX: 1.02, y: 1.02)
 
                 toVC.view.frame = endFrame
-            }) { (bool:Bool) in
+            }) { (Bool) -> Void in
                 self.sourceImageView?.removeFromSuperview()
                 transitionContext.completeTransition(true)
                 fromVC.endAppearanceTransition()
@@ -68,10 +65,19 @@ class Animator: NSObject, UIViewControllerTransitioningDelegate, UIViewControlle
             
         }
         else {
-            transitionContext.completeTransition(true)
-            fromVC.endAppearanceTransition()
-
+            container.addSubview(fromVC.view)
+            fromVC.view.isHidden = true
+            UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: { () -> Void in
+                self.sourceImageView?.frame = endFrame
+                toVC.view.frame = endFrame
+                
+            }) { (Bool) -> Void in
+                self.sourceImageView?.removeFromSuperview()
+                
+                transitionContext.completeTransition(true)
+                toVC.endAppearanceTransition()
+                fromVC.view.isHidden = false
+            }
         }
-
     }
 }

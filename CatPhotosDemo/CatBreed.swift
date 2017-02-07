@@ -29,17 +29,12 @@ struct CatData {
         self.title = title
         self = CatData(imageName)
     }
- 
 }
 
-class CatBreed {
+struct CatBreed {
     
     var breed:String
     var cats = [CatData]()
-    
-    init(_ breed:String) {
-        self.breed = breed
-    }
     
     init(_ breed:String, cats:[CatData]) {
         self.breed = breed

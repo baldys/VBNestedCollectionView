@@ -1,13 +1,23 @@
 import Foundation
 import UIKit
 
+// Implement this protocol from your View Controller
 protocol VBNestedCollectionViewDataSource: class {
+    
+    // Total number of rows in the
     func numberOfRows() -> Int
 
+    // Items that scroll horizontally
     func numberOfItemsAt(row: Int) -> Int
+    
+    // Return the cell for a specific row:item index
     func cellFor(collectionView: UICollectionView, row: Int, item: Int, indexPath: IndexPath) -> UICollectionViewCell
+    
+    // Vertical size of each row
     var rowHeight: CGFloat { get set }
     
+    // Customize the CollectionViews that are created for each row
+    // For example: register your cell classes or set up custom layout
     func customizeCollectionView(collectionView: UICollectionView)
 }
 

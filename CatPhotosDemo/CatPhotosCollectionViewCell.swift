@@ -15,6 +15,4 @@ class CatPhotosCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
-    
 }
